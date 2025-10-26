@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker Application 🐦‍🔥</title>
+    <link rel="stylesheet" href="Style.Css">
+</head>
+
+<body>
+
+    <!-- HTML CODE -->
+    <div id="HEADER">
+        <div id="NAME">Expense Tracker</div>
+        <div id="ABOUT">Manage your finances with ease</div>
+    </div>
+
+    <!-- CARD    -->
+    <div id="MAIN_1_BODY">
+        <div id="MAIN_1">
+            <p class="MAIN_1">Total Expenses 💸</p>
+        </div>
+        <div id="MAIN_2">
+            <p class="MAIN_2">Top Category 📊</p>
+        </div>
+        <div id="MAIN_3">
+            <p class="MAIN_3">Categories 📊</p>
+        </div>
+    </div>
+
+    <!-- FORM -->
+    <div id="MAIN_2_BODY">
+        <div id="FORM">
+            <p id="ADD_EXPENSE">ADD NEW EXPENSE</p>
+            <!-- ************* -->
+            <p class="HEADING">Expense Title *</p>
+            <input id="title" name="title" type="text" placeholder="e.g Grocery Shopping" required>
+            <p class="HEADING">Amount ($) *</p>
+            <input id="amount" name="amount" type="number" step="0.01" inputmode="decimal" placeholder="0.00" required>
+            <p class="HEADING">Category *</p>
+            <select id="category" name="category" required>
+                <option value="" disabled selected>Select Category</option>
+                <option value="food">Food</option>
+                <option value="transport">Transport</option>
+                <option value="shopping">Shopping</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="others">Others</option>
+            </select>
+            <p class="HEADING">Date *</p>
+            <input id="date" name="date" type="date" required>
+            <button type="button"> + ADD EXPENSE</button>
+        </div>
+
+
+        <div id="DIV_2">
+            <!-- FILTER SECTION -->
+            <div id="FILTER_DIV">
+                <span>Filter Expenses 🍸</span>
+                <br>
+                <select id="filterCategory" name="filterCategory">
+                    <option value="all">All</option>
+                    <option value="food">Food</option>
+                    <option value="transport">Transport</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="others">Others</option>
+                </select>
+                <input id="startDate" name="startDate" type="date">
+                <input id="endDate" name="endDate" type="date">
+            </div>
+
+            <!-- HISTORY TABLE -->
+            <div id="TABLE">
+                <p class="HEADING">Expense History 📊</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="Script.JS"></script>
+</body>
+
+</html>
