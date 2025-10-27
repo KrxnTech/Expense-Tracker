@@ -1,5 +1,4 @@
 // SCRIPT CODE 
-// SCRIPT CODE 
 
 
 // FORM VALIDATION 
@@ -71,12 +70,37 @@ addExpenseButton.addEventListener("click", () => {
     }
     else {
         success.style.display = "block";
+        storeExpense();  // IF ALL GOOD THEN ONLY : ) CALL THE FUNCTION 
+        clearForm();
     }
 })
 
+// CLEAR THE FORM 
+function clearForm() {
+    title.value = ""; // ASSIGNING EMPTY VALUE MAKING IT FREE ✌️
+    amount.value = "";
+    category.value = "";
+    date.value = "";
+}
 
+let expense = JSON.parse(localStorage.getItem("expenses")) || []
 
+function storeExpense() {
+    // STORING EXPENSE IN OBJECT THEN PUSHING IT INTO IN ARRAY ! 
+    let expenseObject = {
+        title: title.value,
+        amount: amount.value,
+        category: category.value,
+        date: date.value
+    }
+    expense.push(expenseObject) // PUSHING IT INTO ANY ARRAY
 
-
-
-
+    // 🔴
+    // console.log(expense[0]["title"])
+    // console.log(expense[0]["amount"])
+    // console.log(expense[0]["category"])
+    // console.log(expense[0]["date"])
+    
+    // LOCAL STORAGE 🟢
+    localStorage.setItem("expenses",JSON.stringify(expense))
+}
