@@ -84,6 +84,7 @@ function clearForm() {
 }
 
 let expense = JSON.parse(localStorage.getItem("expenses")) || []
+// let expense = [] 
 
 function storeExpense() {
     // STORING EXPENSE IN OBJECT THEN PUSHING IT INTO IN ARRAY ! 
@@ -96,11 +97,37 @@ function storeExpense() {
     expense.push(expenseObject) // PUSHING IT INTO ANY ARRAY
 
     // 🔴
-    // console.log(expense[0]["title"])
+    console.log(expense[0]["title"])
     // console.log(expense[0]["amount"])
     // console.log(expense[0]["category"])
     // console.log(expense[0]["date"])
-    
+
     // LOCAL STORAGE 🟢
-    localStorage.setItem("expenses",JSON.stringify(expense))
+    localStorage.setItem("expenses", JSON.stringify(expense))
+    displayExpense(); // TP SHOW IMEDIATELY 
 }
+
+
+// SHOWING THE EXPENSE ON THE SCREEN
+let showExpense = document.querySelector(".SHOW_EXPENSE")
+
+function displayExpense() {
+    showExpense.innerHTML = ""
+    expense.forEach((exp) => {
+
+        // CREATE P 
+        let P = document.createElement("P")
+
+        // STYLE
+        P.style.color = "white"
+        P.style.padding = "5px 0"
+
+        // DISPLAY ALL DETAIL IN A NEAT CLEAN WAY
+        P.innerText = `${exp.title} | ${exp.amount} | ${exp.category} | ${exp.date}`
+
+        // SHOW AND APPEND 
+        showExpense.appendChild(P)
+    });
+}
+
+displayExpense(); 
