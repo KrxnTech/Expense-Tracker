@@ -29,15 +29,20 @@
         </div>
     </div>
 
-    <!-- FORM -->
+
     <div id="MAIN_2_BODY">
+        <!-- FORM -->
         <div id="FORM">
             <p id="ADD_EXPENSE">ADD NEW EXPENSE</p>
-            <!-- ************* -->
+
             <p class="HEADING">Expense Title *</p>
             <input id="title" name="title" type="text" placeholder="e.g Grocery Shopping" required>
+            <p class="error" id="titleError">Title is required</p>
+
             <p class="HEADING">Amount ($) *</p>
             <input id="amount" name="amount" type="number" step="0.01" inputmode="decimal" placeholder="0.00" required>
+            <p class="error" id="amountError">Amount is required</p>
+
             <p class="HEADING">Category *</p>
             <select id="category" name="category" required>
                 <option value="" disabled selected>Select Category</option>
@@ -47,9 +52,16 @@
                 <option value="entertainment">Entertainment</option>
                 <option value="others">Others</option>
             </select>
+            <p class="error" id="categoryError">Category is required</p>
+
             <p class="HEADING">Date *</p>
+
             <input id="date" name="date" type="date" required>
-            <button type="button"> + ADD EXPENSE</button>
+            <p class="error" id="dateError">Date is required</p>
+
+            <button id="ADD_EXPENSE_BUTTON" type="button"> + ADD EXPENSE</button>
+
+            <p class="success" id="success">Good To Go</p>
         </div>
 
 
@@ -73,7 +85,19 @@
             <!-- HISTORY TABLE -->
             <div id="TABLE">
                 <p class="HEADING">Expense History 📊</p>
+                <div id="INNER_TABLE">
+                    <p class="TABLE_DATA">Title</p>
+                    <p class="TABLE_DATA">Amount</p>
+                    <p class="TABLE_DATA">Category</p>
+                    <p class="TABLE_DATA">Date</p>
+                    <p class="TABLE_DATA">Actions</p>
+                </div>
             </div>
+        </div>
+    </div>
+
+    <div class="SHOW_EXPENSE_PARENT_DIV">
+        <div class="SHOW_EXPENSE">
         </div>
     </div>
 
