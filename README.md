@@ -6,6 +6,7 @@ Features:
 - Add expenses with description and amount
 - View expenses in a list
 - Remove items from the list
+- See Total number of Expense 
 
 This app helps manage spending by organizing all expenses in one place.
 
