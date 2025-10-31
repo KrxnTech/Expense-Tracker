@@ -1,201 +1,3 @@
-// // SCRIPT CODE 
-
-
-// // FORM VALIDATION 
-
-// // SELECTING ELEMENTS 
-// let form = document.getElementById("FORM");
-// let title = document.getElementById("title");
-// let amount = document.getElementById("amount");
-// let category = document.getElementById("category");
-// let date = document.getElementById("date");
-// let addExpenseButton = document.getElementById("ADD_EXPENSE_BUTTON");
-// let titleError = document.getElementById("titleError");
-// let amountError = document.getElementById("amountError");
-// let categoryError = document.getElementById("categoryError");
-// let dateError = document.getElementById("dateError");
-// let success = document.getElementById("success");
-
-
-// // CLEANING ERROR 
-// function clearError() {
-//     titleError.style.display = "none"
-//     amountError.style.display = "none"
-//     categoryError.style.display = "none"
-//     dateError.style.display = "none"
-//     success.style.display = "none"
-//     titleError.style.display = "none";
-//     title.style.border = "2px solid black";
-//     amount.style.border = "2px solid black";
-//     category.style.border = "2px solid black";
-//     date.style.border = "2px solid black";
-//     ADD.style.display = "none"
-// }
-
-
-// // CELEBRATION BUTTON
-// let ADD = document.createElement("DIV")
-// ADD.classList.add("ADD")
-// ADD.innerText = "Expense Added Successfully ✅"
-// form.appendChild(ADD)
-
-// function celebration() {
-//     ADD.style.display = "block"
-// }
-
-
-// // I AM GOING TO BUILD A FUNCTION WHICH IS GOING TO COUNT THE NUMBER OF CATEGORIES 
-// // SHOW IT ON THE SCREEN
-
-// function SHOW_TOTAL_NUMBER_OF_CATEGORIES() {
-//     let TotalExpenses = expense.length 
-
-//     let SHOW_TOTAL_CATEGORIES = document.createElement("P")
-//     SHOW_TOTAL_CATEGORIES.classList.add("SHOW_TOTAL_CATEGORIES")
-//     let MAIN_3 = document.getElementById("MAIN_3")
-
-//     SHOW_TOTAL_CATEGORIES.innerText = TotalExpenses
-
-//     MAIN_3.appendChild(SHOW_TOTAL_CATEGORIES)
-
-
-//     // LOCAL STORAGE
-//     localStorage.setItem("Total_Expense", JSON.stringify(TotalExpenses))
-// }
-// // CATEGORY MEANS 😄 NUMBER OF EXPENSE : ) 
-
-
-// // ADDING EXPENSE EVENT LISTENER 
-// addExpenseButton.addEventListener("click", () => {
-
-//     const titleValue = title.value.trim()
-//     const regex = /^[A-Za-z\s]+$/;
-
-//     clearError();
-//     if (title.value == "") {
-//         titleError.style.display = "block";
-//         title.style.border = "2px solid red";
-//     }
-//     else if (!regex.test(titleValue)) {
-//         titleError.style.display = "block";
-//         titleError.textContent = "Title must contain only letters";
-//     }
-//     else if (amount.value == "") {
-//         amountError.style.display = "block";
-//         amount.style.border = "2px solid red";
-//     }
-//     else if (amount.value < 0) {
-//         amountError.style.display = "block";
-//         amountError.textContent = "Amount must be greater than 0";
-//     }
-//     else if (amount.value == 0) {
-//         amountError.style.display = "block";
-//         amountError.textContent = "Amount cant be 0";
-//     }
-//     else if (category.value == "") {
-//         categoryError.style.display = "block";
-//         category.style.border = "2px solid red";
-//     }
-//     else if (date.value == "") {
-//         dateError.style.display = "block";
-//         date.style.border = "2px solid red";
-//     }
-//     else {
-//         success.style.display = "block";
-//         storeExpense();  // IF ALL GOOD THEN ONLY : ) CALL THE FUNCTION 
-//         celebration();
-//         clearForm();
-//     }
-// })
-
-// // CLEAR THE FORM 
-// function clearForm() {
-//     title.value = ""; // ASSIGNING EMPTY VALUE MAKING IT FREE ✌️
-//     amount.value = "";
-//     category.value = "";
-//     date.value = "";
-// }
-
-// let expense = JSON.parse(localStorage.getItem("expenses")) || []
-// // let expense = [] 
-
-// function storeExpense() {
-
-//     // GENERATING UNIQUE ID 🔴
-//     const id = (typeof crypto !== "undefined" && crypto.randomUUID)
-//         ? crypto.randomUUID()
-//         : 'id-' + Date.now() + '-' + Math.floor(Math.random() * 1e6);
-
-//     // STORING EXPENSE IN OBJECT THEN PUSHING IT INTO IN ARRAY ! 
-//     let expenseObject = {
-//         id: id,
-//         title: title.value,
-//         amount: amount.value,
-//         category: category.value,
-//         date: date.value
-//     }
-//     expense.push(expenseObject) // PUSHING IT INTO ANY ARRAY
-
-//     // LOCAL STORAGE 🟢
-//     localStorage.setItem("expenses", JSON.stringify(expense))
-//     displayExpense(); // TP SHOW IMEDIATELY 
-// }
-
-
-// // SHOWING THE EXPENSE ON THE SCREEN
-// let showExpense = document.querySelector(".SHOW_EXPENSE")
-
-// function displayExpense() {
-//     showExpense.innerHTML = "";
-//     expense.forEach((exp) => {
-
-//         // CREATE P 
-//         let P = document.createElement("P");
-//         P.classList.add("SHOW_DATA");
-
-//         // CREATE DELETE 
-//         let deleteButton = document.createElement("button");
-//         deleteButton.classList.add("DELETE_BUTTON");
-//         deleteButton.innerText = "DELETE";
-
-//         // ADD UNIQUE ID 
-//         deleteButton.setAttribute("data-id", exp.id);
-
-//         // DELETE EXPENSE 
-//         deleteButton.addEventListener("click", (e) => {
-//             const expenseItem = e.currentTarget.parentElement;
-//             expenseItem.style.display = "none";
-//             // console.log(expenseItem)
-//         });
-
-
-//         // DISPLAY ALL DETAIL + DELETE BUTTON INSIDE SAME P
-//         P.innerHTML = `
-//             <span>${exp.title}</span>
-//             <span>${exp.amount}</span>
-//             <span>${exp.category}</span>
-//             <span>${exp.date}</span>
-//         `;
-
-//         P.appendChild(deleteButton);
-
-//         // FINALLY ADD THE P TO THE SCREEN
-//         showExpense.appendChild(P);
-//     });
-// }
-
-
-// displayExpense();
-// SHOW_TOTAL_NUMBER_OF_CATEGORIES();  
-
-
-// // BEST THING GIVEN BY GPT IT CLEAR ALL THE EXPENSES 
-// document.getElementById("clearAll").addEventListener("click", () => {
-//     localStorage.removeItem("expenses"); // CLEARING THE LOCAL STORAGE 
-//     expense = [];
-//     displayExpense(); // refresh the UI
-// });
-
 // -------------------- FORM VALIDATION --------------------
 
 let form = document.getElementById("FORM");
@@ -204,6 +6,8 @@ let amount = document.getElementById("amount");
 let category = document.getElementById("category");
 let date = document.getElementById("date");
 let addExpenseButton = document.getElementById("ADD_EXPENSE_BUTTON");
+
+// ERROR MSG
 let titleError = document.getElementById("titleError");
 let amountError = document.getElementById("amountError");
 let categoryError = document.getElementById("categoryError");
@@ -217,10 +21,12 @@ function clearError() {
     categoryError.style.display = "none";
     dateError.style.display = "none";
     success.style.display = "none";
+
     title.style.border = "2px solid black";
     amount.style.border = "2px solid black";
     category.style.border = "2px solid black";
     date.style.border = "2px solid black";
+
     ADD.style.display = "none";
 }
 
@@ -236,32 +42,32 @@ function celebration() {
 
 // -------------------- TOTAL EXPENSE COUNTER --------------------
 function SHOW_TOTAL_NUMBER_OF_CATEGORIES() {
-    // Remove old counter before adding new one
+    // REMOVE ODD COUNTER BEFORE ADDING NEW ONE
     let oldCount = document.querySelector(".SHOW_TOTAL_CATEGORIES");
     if (oldCount) oldCount.remove();
 
-    let TotalExpenses = expense.length;
+    let TotalExpenses = expense.length; // THE NUMBER OF OBJECT IN THE ARRAY IS THE EXPENSE 
 
-    let SHOW_TOTAL_CATEGORIES = document.createElement("P");
-    SHOW_TOTAL_CATEGORIES.classList.add("SHOW_TOTAL_CATEGORIES");
+    let SHOW_TOTAL_CATEGORIES = document.createElement("P"); // CREATE P TO SHOW THE NUMBER OF EXPENSES
+    SHOW_TOTAL_CATEGORIES.classList.add("SHOW_TOTAL_CATEGORIES"); // ADDED CLASS FOR CSS 
     SHOW_TOTAL_CATEGORIES.innerText = `Total Expenses 🫰: ${TotalExpenses}`;
 
-    let MAIN_3 = document.getElementById("MAIN_3");
-    MAIN_3.appendChild(SHOW_TOTAL_CATEGORIES);
+    let MAIN_3 = document.getElementById("MAIN_3"); // APPEND INSIDE THE MAIN_3
+    MAIN_3.appendChild(SHOW_TOTAL_CATEGORIES); // APPEND INSIDE THE MAIN DIV OF HEADER
 
-    // Update Local Storage
-    localStorage.setItem("Total_Expense", JSON.stringify(TotalExpenses));
+    // UPDATE LOCAL STORAGE 
+    localStorage.setItem("Total_Expense", JSON.stringify(TotalExpenses)); // STORE THE TOTAL EXPENSE IN THE ARRAY
 }
 
 // -------------------- ADD EXPENSE --------------------
 addExpenseButton.addEventListener("click", () => {
-    const titleValue = title.value.trim();
-    const regex = /^[A-Za-z\s]+$/;
-
+    const titleValue = title.value.trim(); // TAKEN VALUE FROM TITLE INPUT 
+    const regex = /^[A-Za-z\s]+$/; // REGEX 🤷
     clearError();
+
     if (title.value == "") {
-        titleError.style.display = "block";
-        title.style.border = "2px solid red";
+        titleError.style.display = "block"; // ERROS SHOWEND 
+        title.style.border = "2px solid red"; // ALERT UI 
     }
     else if (!regex.test(titleValue)) {
         titleError.style.display = "block";
@@ -284,14 +90,16 @@ addExpenseButton.addEventListener("click", () => {
         date.style.border = "2px solid red";
     }
     else {
-        success.style.display = "block";
-        storeExpense();
-        celebration();
-        clearForm();
+        storeExpense(); // CALL THE EXPENSE FUNCTION 
+        celebration(); // SHOW THAT EXPENSE ADDED SUCCESFULLY 
+        clearForm(); // CLEAR THE FORM 
     }
 });
 
+// IT CLEAR THE FORM AND INPUT VALUES 
 function clearForm() {
+
+    // INITIALISE THE VALUE TO EMPTY PART : ) 
     title.value = "";
     amount.value = "";
     category.value = "";
@@ -299,13 +107,20 @@ function clearForm() {
 }
 
 // -------------------- LOCAL STORAGE + DISPLAY --------------------
+
+// MAKE AN ARRAY WITH LOCAL STORAGE 
 let expense = JSON.parse(localStorage.getItem("expenses")) || [];
 
 function storeExpense() {
+
+
+    // WHY ID ? SO YOU CAN RELIABLY DELETE OR REFRENSE A SPECIFIC EXPENSE EVEN IF MULTIPLE ITEMS HAVE THE SAME TITLE AMOUNT DATE 
     const id = (typeof crypto !== "undefined" && crypto.randomUUID)
         ? crypto.randomUUID()
         : 'id-' + Date.now() + '-' + Math.floor(Math.random() * 1e6);
 
+
+        // CREATING AN OBJECT TO STORE SINGLE EXPENSE 
     let expenseObject = {
         id: id,
         title: title.value,
@@ -314,32 +129,36 @@ function storeExpense() {
         date: date.value
     };
 
-    expense.push(expenseObject);
-    localStorage.setItem("expenses", JSON.stringify(expense));
-    displayExpense();
-    SHOW_TOTAL_NUMBER_OF_CATEGORIES();
+    expense.push(expenseObject); // PUSH THE OBJECT TO ARRAY 
+    localStorage.setItem("expenses", JSON.stringify(expense)); // STORE THE ARRAY LOCALLY 
+    displayExpense(); // CALL THE FUCNTION TO SHOW THE EXPENSES 
+    SHOW_TOTAL_NUMBER_OF_CATEGORIES(); // CALL THE FUNCTION WHICH SHOW THE TOTAL NUMBER OF EXPENSES 
 }
 
 // -------------------- DISPLAY EXPENSES --------------------
-let showExpense = document.querySelector(".SHOW_EXPENSE");
+let showExpense = document.querySelector(".SHOW_EXPENSE"); // ACCESS THE MAIN TABLE INSIDE WHICH WE ARE GOING TO DISPLAY THE EXPENSES WITH THERE TYPE 
 
-function displayExpense() {
-    showExpense.innerHTML = "";
+
+// THIS FUNCTION ID GOING TO DISPLAY ALL THE EXPENSES
+function displayExpense() { 
+    showExpense.innerHTML = ""; // IT CLEAR ALL OLD EXPENSE DATA FROM THE SCREEN ( TABLE ) BEFORE SHOWING THE UPDATED LIST
 
     expense.forEach((exp) => {
-        let P = document.createElement("P");
-        P.classList.add("SHOW_DATA");
+        // YOU ARE SELECTING ONE OBJECT AS EXP FROM THE ARRAY TO SHOW THE DATA ON SCREEN THROUGH DOM 
+        let P = document.createElement("P"); // CREATE P TAG 
+        P.classList.add("SHOW_DATA"); // ADDING CSS 
 
-        let deleteButton = document.createElement("button");
-        deleteButton.classList.add("DELETE_BUTTON");
-        deleteButton.innerText = "DELETE";
-        deleteButton.setAttribute("data-id", exp.id);
+        let deleteButton = document.createElement("button"); // DELETE BUTTON IN THE RIGHT SIDE 
+        deleteButton.classList.add("DELETE_BUTTON"); // ADDING CSS CLASS TO DELETE BUTTON 
+        deleteButton.innerText = "DELETE"; // GIVING TEXT 
+        deleteButton.setAttribute("data-id", exp.id); // WE HAVE CREATE A ATTRIBUTE AND STORING THE ID IN IT 
 
         deleteButton.addEventListener("click", (e) => {
-            const idToDelete = e.currentTarget.getAttribute("data-id");
-            expense = expense.filter((item) => item.id !== idToDelete);
-            localStorage.setItem("expenses", JSON.stringify(expense));
-            displayExpense();
+            // E - IN BUILD OBJECT APPEAR WITH SOME IMPORTANT FUNCTION AND METHODS 
+            const idToDelete = e.currentTarget.getAttribute("data-id"); // WHEN WE CLICK ON ANY EXPENSE IT WILL SHOW THE ID OF THAT EXPENSE
+            expense = expense.filter((item) => item.id !== idToDelete); // REMOVE THE MATCHED ID EXPENSE FROM THE ARRAY 
+            localStorage.setItem("expenses", JSON.stringify(expense)); // STORE THE ARRAY LOCALLY 
+            displayExpense(); // IT SHOW THE UPDATED EXPENSE AND IT DELETE FROM THE ARRAY AND SHOW THEM ON THE SCREEN 
             SHOW_TOTAL_NUMBER_OF_CATEGORIES();
         });
 
@@ -357,14 +176,15 @@ function displayExpense() {
 
 // -------------------- CLEAR ALL --------------------
 document.getElementById("clearAll").addEventListener("click", () => {
-    localStorage.removeItem("expenses");
-    localStorage.removeItem("Total_Expense");
-    expense = [];
-    displayExpense();
-    SHOW_TOTAL_NUMBER_OF_CATEGORIES();
+    // 
+    localStorage.removeItem("expenses"); // REMOVE FROM LOCAL STORAGE 
+    localStorage.removeItem("Total_Expense"); // REMOVE FROM LOCAL STORAGE 
+    expense = []; // INITIALISE THE ARRAY TO [] EMPTY ARRAY
+
+    displayExpense(); // CALL THE DISPLAY FUNCTION SO WHEN ALL THE EXPENSE DELETE IT WILL SHOW THE EXPENSE HOW MUCH LEFT 
+    SHOW_TOTAL_NUMBER_OF_CATEGORIES(); // CALL THIS FUNCTION WHEN YOU CLEAR SO IT WILL ALSO UPDATE 
 });
 
 // -------------------- INITIAL LOAD --------------------
 displayExpense();
-SHOW_TOTAL_NUMBER_OF_CATEGORIES();
-
+SHOW_TOTAL_NUMBER_OF_CATEGORIES(); 
